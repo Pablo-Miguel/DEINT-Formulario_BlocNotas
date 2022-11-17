@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.menu = new System.Windows.Forms.MenuStrip();
             this.menuArchivo = new System.Windows.Forms.ToolStripMenuItem();
             this.menuArchivoNuevo = new System.Windows.Forms.ToolStripMenuItem();
@@ -43,6 +42,8 @@
             this.menuEdicionFuente = new System.Windows.Forms.ToolStripMenuItem();
             this.menuEdicionColor = new System.Windows.Forms.ToolStripMenuItem();
             this.menuImg = new System.Windows.Forms.ToolStrip();
+            this.txtNotas = new System.Windows.Forms.RichTextBox();
+            this.statusMenu = new System.Windows.Forms.StatusStrip();
             this.menuImgNuevo = new System.Windows.Forms.ToolStripButton();
             this.menuImgAbrir = new System.Windows.Forms.ToolStripButton();
             this.menuImgGuardar = new System.Windows.Forms.ToolStripButton();
@@ -52,8 +53,6 @@
             this.menuImgBuscar = new System.Windows.Forms.ToolStripButton();
             this.menuImgFuente = new System.Windows.Forms.ToolStripButton();
             this.menuImgColor = new System.Windows.Forms.ToolStripButton();
-            this.txtNotas = new System.Windows.Forms.RichTextBox();
-            this.statusMenu = new System.Windows.Forms.StatusStrip();
             this.menu.SuspendLayout();
             this.menuImg.SuspendLayout();
             this.SuspendLayout();
@@ -85,23 +84,26 @@
             this.menuArchivoNuevo.Name = "menuArchivoNuevo";
             this.menuArchivoNuevo.Size = new System.Drawing.Size(180, 22);
             this.menuArchivoNuevo.Text = "&Nuevo";
+            this.menuArchivoNuevo.Click += new System.EventHandler(this.menuArchivoNuevo_Click);
             // 
             // menuArchivoAbrir
             // 
             this.menuArchivoAbrir.Name = "menuArchivoAbrir";
             this.menuArchivoAbrir.Size = new System.Drawing.Size(180, 22);
             this.menuArchivoAbrir.Text = "&Abrir";
+            this.menuArchivoAbrir.Click += new System.EventHandler(this.menuArchivoAbrir_Click);
             // 
             // menuArchivoGuardar
             // 
             this.menuArchivoGuardar.Name = "menuArchivoGuardar";
             this.menuArchivoGuardar.Size = new System.Drawing.Size(180, 22);
             this.menuArchivoGuardar.Text = "&Guardar";
+            this.menuArchivoGuardar.Click += new System.EventHandler(this.menuArchivoGuardar_Click);
             // 
             // menuArchivoSalir
             // 
             this.menuArchivoSalir.Name = "menuArchivoSalir";
-            this.menuArchivoSalir.Size = new System.Drawing.Size(180, 22);
+            this.menuArchivoSalir.Size = new System.Drawing.Size(116, 22);
             this.menuArchivoSalir.Text = "&Salir";
             this.menuArchivoSalir.Click += new System.EventHandler(this.menuArchivoSalir_Click);
             // 
@@ -121,37 +123,37 @@
             // menuEdicionCortar
             // 
             this.menuEdicionCortar.Name = "menuEdicionCortar";
-            this.menuEdicionCortar.Size = new System.Drawing.Size(180, 22);
+            this.menuEdicionCortar.Size = new System.Drawing.Size(110, 22);
             this.menuEdicionCortar.Text = "&Cortar";
             // 
             // menuEdicionCopiar
             // 
             this.menuEdicionCopiar.Name = "menuEdicionCopiar";
-            this.menuEdicionCopiar.Size = new System.Drawing.Size(180, 22);
+            this.menuEdicionCopiar.Size = new System.Drawing.Size(110, 22);
             this.menuEdicionCopiar.Text = "&Copiar";
             // 
             // menuEdicionPegar
             // 
             this.menuEdicionPegar.Name = "menuEdicionPegar";
-            this.menuEdicionPegar.Size = new System.Drawing.Size(180, 22);
+            this.menuEdicionPegar.Size = new System.Drawing.Size(110, 22);
             this.menuEdicionPegar.Text = "&Pegar";
             // 
             // menuEdicionBuscar
             // 
             this.menuEdicionBuscar.Name = "menuEdicionBuscar";
-            this.menuEdicionBuscar.Size = new System.Drawing.Size(180, 22);
+            this.menuEdicionBuscar.Size = new System.Drawing.Size(110, 22);
             this.menuEdicionBuscar.Text = "&Buscar";
             // 
             // menuEdicionFuente
             // 
             this.menuEdicionFuente.Name = "menuEdicionFuente";
-            this.menuEdicionFuente.Size = new System.Drawing.Size(180, 22);
+            this.menuEdicionFuente.Size = new System.Drawing.Size(110, 22);
             this.menuEdicionFuente.Text = "&Fuente";
             // 
             // menuEdicionColor
             // 
             this.menuEdicionColor.Name = "menuEdicionColor";
-            this.menuEdicionColor.Size = new System.Drawing.Size(180, 22);
+            this.menuEdicionColor.Size = new System.Drawing.Size(110, 22);
             this.menuEdicionColor.Text = "&Color";
             // 
             // menuImg
@@ -172,87 +174,6 @@
             this.menuImg.TabIndex = 1;
             this.menuImg.Text = "toolStrip1";
             // 
-            // menuImgNuevo
-            // 
-            this.menuImgNuevo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.menuImgNuevo.Image = ((System.Drawing.Image)(resources.GetObject("menuImgNuevo.Image")));
-            this.menuImgNuevo.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.menuImgNuevo.Name = "menuImgNuevo";
-            this.menuImgNuevo.Size = new System.Drawing.Size(23, 22);
-            this.menuImgNuevo.Text = "toolStripButton1";
-            // 
-            // menuImgAbrir
-            // 
-            this.menuImgAbrir.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.menuImgAbrir.Image = ((System.Drawing.Image)(resources.GetObject("menuImgAbrir.Image")));
-            this.menuImgAbrir.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.menuImgAbrir.Name = "menuImgAbrir";
-            this.menuImgAbrir.Size = new System.Drawing.Size(23, 22);
-            this.menuImgAbrir.Text = "toolStripButton2";
-            // 
-            // menuImgGuardar
-            // 
-            this.menuImgGuardar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.menuImgGuardar.Image = ((System.Drawing.Image)(resources.GetObject("menuImgGuardar.Image")));
-            this.menuImgGuardar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.menuImgGuardar.Name = "menuImgGuardar";
-            this.menuImgGuardar.Size = new System.Drawing.Size(23, 22);
-            this.menuImgGuardar.Text = "toolStripButton3";
-            // 
-            // menuImgCortar
-            // 
-            this.menuImgCortar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.menuImgCortar.Image = ((System.Drawing.Image)(resources.GetObject("menuImgCortar.Image")));
-            this.menuImgCortar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.menuImgCortar.Name = "menuImgCortar";
-            this.menuImgCortar.Size = new System.Drawing.Size(23, 22);
-            this.menuImgCortar.Text = "toolStripButton4";
-            // 
-            // menuImgCopiar
-            // 
-            this.menuImgCopiar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.menuImgCopiar.Image = ((System.Drawing.Image)(resources.GetObject("menuImgCopiar.Image")));
-            this.menuImgCopiar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.menuImgCopiar.Name = "menuImgCopiar";
-            this.menuImgCopiar.Size = new System.Drawing.Size(23, 22);
-            this.menuImgCopiar.Text = "toolStripButton5";
-            // 
-            // menuImgPegar
-            // 
-            this.menuImgPegar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.menuImgPegar.Image = ((System.Drawing.Image)(resources.GetObject("menuImgPegar.Image")));
-            this.menuImgPegar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.menuImgPegar.Name = "menuImgPegar";
-            this.menuImgPegar.Size = new System.Drawing.Size(23, 22);
-            this.menuImgPegar.Text = "toolStripButton6";
-            // 
-            // menuImgBuscar
-            // 
-            this.menuImgBuscar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.menuImgBuscar.Image = ((System.Drawing.Image)(resources.GetObject("menuImgBuscar.Image")));
-            this.menuImgBuscar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.menuImgBuscar.Name = "menuImgBuscar";
-            this.menuImgBuscar.Size = new System.Drawing.Size(23, 22);
-            this.menuImgBuscar.Text = "toolStripButton7";
-            // 
-            // menuImgFuente
-            // 
-            this.menuImgFuente.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.menuImgFuente.Image = ((System.Drawing.Image)(resources.GetObject("menuImgFuente.Image")));
-            this.menuImgFuente.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.menuImgFuente.Name = "menuImgFuente";
-            this.menuImgFuente.Size = new System.Drawing.Size(23, 22);
-            this.menuImgFuente.Text = "toolStripButton8";
-            // 
-            // menuImgColor
-            // 
-            this.menuImgColor.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.menuImgColor.Image = ((System.Drawing.Image)(resources.GetObject("menuImgColor.Image")));
-            this.menuImgColor.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.menuImgColor.Name = "menuImgColor";
-            this.menuImgColor.Size = new System.Drawing.Size(23, 22);
-            this.menuImgColor.Text = "toolStripButton9";
-            // 
             // txtNotas
             // 
             this.txtNotas.Location = new System.Drawing.Point(0, 52);
@@ -269,6 +190,90 @@
             this.statusMenu.Size = new System.Drawing.Size(800, 22);
             this.statusMenu.TabIndex = 3;
             this.statusMenu.Text = "statusStrip1";
+            // 
+            // menuImgNuevo
+            // 
+            this.menuImgNuevo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.menuImgNuevo.Image = global::DEINT_Formulario_BlocNotas.Properties.Resources.guardar;
+            this.menuImgNuevo.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.menuImgNuevo.Name = "menuImgNuevo";
+            this.menuImgNuevo.Size = new System.Drawing.Size(23, 22);
+            this.menuImgNuevo.Text = "Nuevo";
+            this.menuImgNuevo.Click += new System.EventHandler(this.menuImgNuevo_Click);
+            // 
+            // menuImgAbrir
+            // 
+            this.menuImgAbrir.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.menuImgAbrir.Image = global::DEINT_Formulario_BlocNotas.Properties.Resources.abrir;
+            this.menuImgAbrir.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.menuImgAbrir.Name = "menuImgAbrir";
+            this.menuImgAbrir.Size = new System.Drawing.Size(23, 22);
+            this.menuImgAbrir.Text = "Abrir";
+            this.menuImgAbrir.Click += new System.EventHandler(this.menuImgAbrir_Click);
+            // 
+            // menuImgGuardar
+            // 
+            this.menuImgGuardar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.menuImgGuardar.Image = global::DEINT_Formulario_BlocNotas.Properties.Resources.save;
+            this.menuImgGuardar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.menuImgGuardar.Name = "menuImgGuardar";
+            this.menuImgGuardar.Size = new System.Drawing.Size(23, 22);
+            this.menuImgGuardar.Text = "Guardar";
+            this.menuImgGuardar.Click += new System.EventHandler(this.menuImgGuardar_Click);
+            // 
+            // menuImgCortar
+            // 
+            this.menuImgCortar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.menuImgCortar.Image = global::DEINT_Formulario_BlocNotas.Properties.Resources.cut;
+            this.menuImgCortar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.menuImgCortar.Name = "menuImgCortar";
+            this.menuImgCortar.Size = new System.Drawing.Size(23, 22);
+            this.menuImgCortar.Text = "Cortar";
+            // 
+            // menuImgCopiar
+            // 
+            this.menuImgCopiar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.menuImgCopiar.Image = global::DEINT_Formulario_BlocNotas.Properties.Resources.copy;
+            this.menuImgCopiar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.menuImgCopiar.Name = "menuImgCopiar";
+            this.menuImgCopiar.Size = new System.Drawing.Size(23, 22);
+            this.menuImgCopiar.Text = "Copiar";
+            // 
+            // menuImgPegar
+            // 
+            this.menuImgPegar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.menuImgPegar.Image = global::DEINT_Formulario_BlocNotas.Properties.Resources.paste;
+            this.menuImgPegar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.menuImgPegar.Name = "menuImgPegar";
+            this.menuImgPegar.Size = new System.Drawing.Size(23, 22);
+            this.menuImgPegar.Text = "Pegar";
+            // 
+            // menuImgBuscar
+            // 
+            this.menuImgBuscar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.menuImgBuscar.Image = global::DEINT_Formulario_BlocNotas.Properties.Resources.search;
+            this.menuImgBuscar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.menuImgBuscar.Name = "menuImgBuscar";
+            this.menuImgBuscar.Size = new System.Drawing.Size(23, 22);
+            this.menuImgBuscar.Text = "Buscar";
+            // 
+            // menuImgFuente
+            // 
+            this.menuImgFuente.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.menuImgFuente.Image = global::DEINT_Formulario_BlocNotas.Properties.Resources.font;
+            this.menuImgFuente.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.menuImgFuente.Name = "menuImgFuente";
+            this.menuImgFuente.Size = new System.Drawing.Size(23, 22);
+            this.menuImgFuente.Text = "Cambiar fuente";
+            // 
+            // menuImgColor
+            // 
+            this.menuImgColor.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.menuImgColor.Image = global::DEINT_Formulario_BlocNotas.Properties.Resources.color;
+            this.menuImgColor.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.menuImgColor.Name = "menuImgColor";
+            this.menuImgColor.Size = new System.Drawing.Size(23, 22);
+            this.menuImgColor.Text = "Cambiar color";
             // 
             // Form1
             // 
