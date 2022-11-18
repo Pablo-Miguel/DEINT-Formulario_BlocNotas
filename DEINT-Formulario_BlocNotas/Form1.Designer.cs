@@ -42,8 +42,6 @@
             this.menuEdicionFuente = new System.Windows.Forms.ToolStripMenuItem();
             this.menuEdicionColor = new System.Windows.Forms.ToolStripMenuItem();
             this.menuImg = new System.Windows.Forms.ToolStrip();
-            this.txtNotas = new System.Windows.Forms.RichTextBox();
-            this.statusMenu = new System.Windows.Forms.StatusStrip();
             this.menuImgNuevo = new System.Windows.Forms.ToolStripButton();
             this.menuImgAbrir = new System.Windows.Forms.ToolStripButton();
             this.menuImgGuardar = new System.Windows.Forms.ToolStripButton();
@@ -53,6 +51,8 @@
             this.menuImgBuscar = new System.Windows.Forms.ToolStripButton();
             this.menuImgFuente = new System.Windows.Forms.ToolStripButton();
             this.menuImgColor = new System.Windows.Forms.ToolStripButton();
+            this.txtNotas = new System.Windows.Forms.RichTextBox();
+            this.statusMenu = new System.Windows.Forms.StatusStrip();
             this.menu.SuspendLayout();
             this.menuImg.SuspendLayout();
             this.SuspendLayout();
@@ -82,21 +82,21 @@
             // menuArchivoNuevo
             // 
             this.menuArchivoNuevo.Name = "menuArchivoNuevo";
-            this.menuArchivoNuevo.Size = new System.Drawing.Size(180, 22);
+            this.menuArchivoNuevo.Size = new System.Drawing.Size(116, 22);
             this.menuArchivoNuevo.Text = "&Nuevo";
             this.menuArchivoNuevo.Click += new System.EventHandler(this.menuArchivoNuevo_Click);
             // 
             // menuArchivoAbrir
             // 
             this.menuArchivoAbrir.Name = "menuArchivoAbrir";
-            this.menuArchivoAbrir.Size = new System.Drawing.Size(180, 22);
+            this.menuArchivoAbrir.Size = new System.Drawing.Size(116, 22);
             this.menuArchivoAbrir.Text = "&Abrir";
             this.menuArchivoAbrir.Click += new System.EventHandler(this.menuArchivoAbrir_Click);
             // 
             // menuArchivoGuardar
             // 
             this.menuArchivoGuardar.Name = "menuArchivoGuardar";
-            this.menuArchivoGuardar.Size = new System.Drawing.Size(180, 22);
+            this.menuArchivoGuardar.Size = new System.Drawing.Size(116, 22);
             this.menuArchivoGuardar.Text = "&Guardar";
             this.menuArchivoGuardar.Click += new System.EventHandler(this.menuArchivoGuardar_Click);
             // 
@@ -123,37 +123,41 @@
             // menuEdicionCortar
             // 
             this.menuEdicionCortar.Name = "menuEdicionCortar";
-            this.menuEdicionCortar.Size = new System.Drawing.Size(110, 22);
+            this.menuEdicionCortar.Size = new System.Drawing.Size(180, 22);
             this.menuEdicionCortar.Text = "&Cortar";
+            this.menuEdicionCortar.Click += new System.EventHandler(this.menuEdicionCortar_Click);
             // 
             // menuEdicionCopiar
             // 
             this.menuEdicionCopiar.Name = "menuEdicionCopiar";
-            this.menuEdicionCopiar.Size = new System.Drawing.Size(110, 22);
+            this.menuEdicionCopiar.Size = new System.Drawing.Size(180, 22);
             this.menuEdicionCopiar.Text = "&Copiar";
+            this.menuEdicionCopiar.Click += new System.EventHandler(this.menuEdicionCopiar_Click);
             // 
             // menuEdicionPegar
             // 
             this.menuEdicionPegar.Name = "menuEdicionPegar";
-            this.menuEdicionPegar.Size = new System.Drawing.Size(110, 22);
+            this.menuEdicionPegar.Size = new System.Drawing.Size(180, 22);
             this.menuEdicionPegar.Text = "&Pegar";
+            this.menuEdicionPegar.Click += new System.EventHandler(this.menuEdicionPegar_Click);
             // 
             // menuEdicionBuscar
             // 
             this.menuEdicionBuscar.Name = "menuEdicionBuscar";
-            this.menuEdicionBuscar.Size = new System.Drawing.Size(110, 22);
+            this.menuEdicionBuscar.Size = new System.Drawing.Size(180, 22);
             this.menuEdicionBuscar.Text = "&Buscar";
+            this.menuEdicionBuscar.Click += new System.EventHandler(this.menuEdicionBuscar_Click);
             // 
             // menuEdicionFuente
             // 
             this.menuEdicionFuente.Name = "menuEdicionFuente";
-            this.menuEdicionFuente.Size = new System.Drawing.Size(110, 22);
+            this.menuEdicionFuente.Size = new System.Drawing.Size(180, 22);
             this.menuEdicionFuente.Text = "&Fuente";
             // 
             // menuEdicionColor
             // 
             this.menuEdicionColor.Name = "menuEdicionColor";
-            this.menuEdicionColor.Size = new System.Drawing.Size(110, 22);
+            this.menuEdicionColor.Size = new System.Drawing.Size(180, 22);
             this.menuEdicionColor.Text = "&Color";
             // 
             // menuImg
@@ -173,23 +177,6 @@
             this.menuImg.Size = new System.Drawing.Size(800, 25);
             this.menuImg.TabIndex = 1;
             this.menuImg.Text = "toolStrip1";
-            // 
-            // txtNotas
-            // 
-            this.txtNotas.Location = new System.Drawing.Point(0, 52);
-            this.txtNotas.Name = "txtNotas";
-            this.txtNotas.Size = new System.Drawing.Size(800, 373);
-            this.txtNotas.TabIndex = 2;
-            this.txtNotas.Text = "";
-            this.txtNotas.Visible = false;
-            // 
-            // statusMenu
-            // 
-            this.statusMenu.Location = new System.Drawing.Point(0, 428);
-            this.statusMenu.Name = "statusMenu";
-            this.statusMenu.Size = new System.Drawing.Size(800, 22);
-            this.statusMenu.TabIndex = 3;
-            this.statusMenu.Text = "statusStrip1";
             // 
             // menuImgNuevo
             // 
@@ -229,6 +216,7 @@
             this.menuImgCortar.Name = "menuImgCortar";
             this.menuImgCortar.Size = new System.Drawing.Size(23, 22);
             this.menuImgCortar.Text = "Cortar";
+            this.menuImgCortar.Click += new System.EventHandler(this.menuImgCortar_Click);
             // 
             // menuImgCopiar
             // 
@@ -238,6 +226,7 @@
             this.menuImgCopiar.Name = "menuImgCopiar";
             this.menuImgCopiar.Size = new System.Drawing.Size(23, 22);
             this.menuImgCopiar.Text = "Copiar";
+            this.menuImgCopiar.Click += new System.EventHandler(this.menuImgCopiar_Click);
             // 
             // menuImgPegar
             // 
@@ -247,6 +236,7 @@
             this.menuImgPegar.Name = "menuImgPegar";
             this.menuImgPegar.Size = new System.Drawing.Size(23, 22);
             this.menuImgPegar.Text = "Pegar";
+            this.menuImgPegar.Click += new System.EventHandler(this.menuImgPegar_Click);
             // 
             // menuImgBuscar
             // 
@@ -256,6 +246,7 @@
             this.menuImgBuscar.Name = "menuImgBuscar";
             this.menuImgBuscar.Size = new System.Drawing.Size(23, 22);
             this.menuImgBuscar.Text = "Buscar";
+            this.menuImgBuscar.Click += new System.EventHandler(this.menuImgBuscar_Click);
             // 
             // menuImgFuente
             // 
@@ -274,6 +265,23 @@
             this.menuImgColor.Name = "menuImgColor";
             this.menuImgColor.Size = new System.Drawing.Size(23, 22);
             this.menuImgColor.Text = "Cambiar color";
+            // 
+            // txtNotas
+            // 
+            this.txtNotas.Location = new System.Drawing.Point(0, 52);
+            this.txtNotas.Name = "txtNotas";
+            this.txtNotas.Size = new System.Drawing.Size(800, 373);
+            this.txtNotas.TabIndex = 2;
+            this.txtNotas.Text = "";
+            this.txtNotas.Visible = false;
+            // 
+            // statusMenu
+            // 
+            this.statusMenu.Location = new System.Drawing.Point(0, 428);
+            this.statusMenu.Name = "statusMenu";
+            this.statusMenu.Size = new System.Drawing.Size(800, 22);
+            this.statusMenu.TabIndex = 3;
+            this.statusMenu.Text = "statusStrip1";
             // 
             // Form1
             // 

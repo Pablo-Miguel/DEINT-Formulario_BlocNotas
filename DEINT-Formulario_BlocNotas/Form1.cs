@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualBasic;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -6,8 +7,11 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Serialization;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace DEINT_Formulario_BlocNotas
 {
@@ -15,6 +19,7 @@ namespace DEINT_Formulario_BlocNotas
     {
 
         private String filePath = string.Empty;
+        private Boolean buscado = false;
 
         public Form1()
         {
@@ -33,7 +38,7 @@ namespace DEINT_Formulario_BlocNotas
             using (OpenFileDialog openFileDialog = new OpenFileDialog())
             {
                 openFileDialog.InitialDirectory = "C:\\";
-                openFileDialog.Filter = "txt files (*.txt)|*.txt";
+                openFileDialog.Filter = "txt files (*.txt)|*.txt|rtf files (*.rtf)|*.rtf";
                 openFileDialog.FilterIndex = 2;
                 openFileDialog.RestoreDirectory = true;
 
@@ -54,6 +59,8 @@ namespace DEINT_Formulario_BlocNotas
 
             txtNotas.Text = fileContent;
 
+            txtNotas.Visible = true;
+
         }
 
         void guardar() 
@@ -70,7 +77,7 @@ namespace DEINT_Formulario_BlocNotas
                 Stream myStream;
                 SaveFileDialog saveFileDialog1 = new SaveFileDialog();
 
-                saveFileDialog1.Filter = "txt files (*.txt)|*.txt";
+                saveFileDialog1.Filter = "txt files (*.txt)|*.txt|rtf files (*.rtf)|*.rtf";
                 saveFileDialog1.FilterIndex = 2;
                 saveFileDialog1.RestoreDirectory = true;
 
@@ -83,6 +90,59 @@ namespace DEINT_Formulario_BlocNotas
                         guardar();
                     }
                 }
+            }
+            
+        }
+
+        private void cortar() {
+            txtNotas.Select();
+            txtNotas.Cut();
+        }
+
+        private void copiar() {
+            txtNotas.Select();
+            txtNotas.Copy();
+        }
+
+        private void pegar() {
+            txtNotas.Paste();
+        }
+
+        private void buscar() {
+            if (!buscado) 
+            {
+                string input = Interaction.InputBox("Buscar palabras", "Buscar", "", 10, 10);
+                if (!input.Equals(String.Empty))
+                {
+
+                    string[] words = input.Split(',');
+                    foreach (string word in words)
+                    {
+                        int startindex = 0;
+                        while (startindex < txtNotas.TextLength)
+                        {
+                            int wordstartIndex = txtNotas.Find(word, startindex, RichTextBoxFinds.None);
+                            if (wordstartIndex != -1)
+                            {
+                                txtNotas.SelectionStart = wordstartIndex;
+                                txtNotas.SelectionLength = word.Length;
+                                txtNotas.SelectionBackColor = Color.Yellow;
+                            }
+                            else
+                                break;
+                            startindex += wordstartIndex + word.Length;
+                        }
+                    }
+
+                }
+                buscado = true;
+            }
+            else 
+            {
+                txtNotas.SelectionStart = 0;
+                txtNotas.SelectAll();
+                txtNotas.SelectionBackColor = Color.White;
+                buscado = false;
             }
             
         }
@@ -120,6 +180,46 @@ namespace DEINT_Formulario_BlocNotas
         private void menuImgGuardar_Click(object sender, EventArgs e)
         {
             guardar();
+        }
+
+        private void menuEdicionCortar_Click(object sender, EventArgs e)
+        {
+            cortar();
+        }
+
+        private void menuImgCortar_Click(object sender, EventArgs e)
+        {
+            cortar();
+        }
+
+        private void menuEdicionCopiar_Click(object sender, EventArgs e)
+        {
+            copiar();
+        }
+
+        private void menuImgCopiar_Click(object sender, EventArgs e)
+        {
+            copiar();
+        }
+
+        private void menuEdicionPegar_Click(object sender, EventArgs e)
+        {
+            pegar();
+        }
+
+        private void menuImgPegar_Click(object sender, EventArgs e)
+        {
+            pegar();
+        }
+
+        private void menuEdicionBuscar_Click(object sender, EventArgs e)
+        {
+            buscar();
+        }
+
+        private void menuImgBuscar_Click(object sender, EventArgs e)
+        {
+            buscar();
         }
     }
 }
