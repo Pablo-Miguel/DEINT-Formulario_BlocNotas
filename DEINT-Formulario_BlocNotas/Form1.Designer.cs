@@ -53,8 +53,12 @@
             this.menuImgColor = new System.Windows.Forms.ToolStripButton();
             this.txtNotas = new System.Windows.Forms.RichTextBox();
             this.statusMenu = new System.Windows.Forms.StatusStrip();
+            this.fontDialog1 = new System.Windows.Forms.FontDialog();
+            this.tsLblFila = new System.Windows.Forms.ToolStripStatusLabel();
+            this.tsLblColumna = new System.Windows.Forms.ToolStripStatusLabel();
             this.menu.SuspendLayout();
             this.menuImg.SuspendLayout();
+            this.statusMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // menu
@@ -153,12 +157,14 @@
             this.menuEdicionFuente.Name = "menuEdicionFuente";
             this.menuEdicionFuente.Size = new System.Drawing.Size(180, 22);
             this.menuEdicionFuente.Text = "&Fuente";
+            this.menuEdicionFuente.Click += new System.EventHandler(this.menuEdicionFuente_Click);
             // 
             // menuEdicionColor
             // 
             this.menuEdicionColor.Name = "menuEdicionColor";
             this.menuEdicionColor.Size = new System.Drawing.Size(180, 22);
             this.menuEdicionColor.Text = "&Color";
+            this.menuEdicionColor.Click += new System.EventHandler(this.menuEdicionColor_Click);
             // 
             // menuImg
             // 
@@ -256,6 +262,7 @@
             this.menuImgFuente.Name = "menuImgFuente";
             this.menuImgFuente.Size = new System.Drawing.Size(23, 22);
             this.menuImgFuente.Text = "Cambiar fuente";
+            this.menuImgFuente.Click += new System.EventHandler(this.menuImgFuente_Click);
             // 
             // menuImgColor
             // 
@@ -265,6 +272,7 @@
             this.menuImgColor.Name = "menuImgColor";
             this.menuImgColor.Size = new System.Drawing.Size(23, 22);
             this.menuImgColor.Text = "Cambiar color";
+            this.menuImgColor.Click += new System.EventHandler(this.menuImgColor_Click);
             // 
             // txtNotas
             // 
@@ -274,14 +282,30 @@
             this.txtNotas.TabIndex = 2;
             this.txtNotas.Text = "";
             this.txtNotas.Visible = false;
+            this.txtNotas.TextChanged += new System.EventHandler(this.txtNotas_TextChanged);
             // 
             // statusMenu
             // 
+            this.statusMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsLblFila,
+            this.tsLblColumna});
             this.statusMenu.Location = new System.Drawing.Point(0, 428);
             this.statusMenu.Name = "statusMenu";
             this.statusMenu.Size = new System.Drawing.Size(800, 22);
             this.statusMenu.TabIndex = 3;
             this.statusMenu.Text = "statusStrip1";
+            // 
+            // tsLblFila
+            // 
+            this.tsLblFila.Name = "tsLblFila";
+            this.tsLblFila.Size = new System.Drawing.Size(37, 17);
+            this.tsLblFila.Text = "Fila: 0";
+            // 
+            // tsLblColumna
+            // 
+            this.tsLblColumna.Name = "tsLblColumna";
+            this.tsLblColumna.Size = new System.Drawing.Size(68, 17);
+            this.tsLblColumna.Text = "Columna: 0";
             // 
             // Form1
             // 
@@ -299,6 +323,8 @@
             this.menu.PerformLayout();
             this.menuImg.ResumeLayout(false);
             this.menuImg.PerformLayout();
+            this.statusMenu.ResumeLayout(false);
+            this.statusMenu.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -331,6 +357,9 @@
         private System.Windows.Forms.ToolStripButton menuImgBuscar;
         private System.Windows.Forms.ToolStripButton menuImgFuente;
         private System.Windows.Forms.ToolStripButton menuImgColor;
+        private System.Windows.Forms.FontDialog fontDialog1;
+        private System.Windows.Forms.ToolStripStatusLabel tsLblFila;
+        private System.Windows.Forms.ToolStripStatusLabel tsLblColumna;
     }
 }
 

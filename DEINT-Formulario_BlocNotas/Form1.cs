@@ -141,10 +141,34 @@ namespace DEINT_Formulario_BlocNotas
             {
                 txtNotas.SelectionStart = 0;
                 txtNotas.SelectAll();
-                txtNotas.SelectionBackColor = Color.White;
+                txtNotas.BackColor = Color.White;
                 buscado = false;
             }
             
+        }
+
+        private void fuente() {
+            fontDialog1.ShowColor = true;
+
+            fontDialog1.Font = txtNotas.Font;
+            fontDialog1.Color = txtNotas.ForeColor;
+
+            if (fontDialog1.ShowDialog() != DialogResult.Cancel)
+            {
+                txtNotas.Font = fontDialog1.Font;
+                txtNotas.ForeColor = fontDialog1.Color;
+            }
+        }
+
+        private void color() {
+            ColorDialog MyDialog = new ColorDialog();
+            MyDialog.AllowFullOpen = false;
+            MyDialog.ShowHelp = true;
+            MyDialog.Color = txtNotas.ForeColor;
+
+            if (MyDialog.ShowDialog() == DialogResult.OK) { 
+                txtNotas.ForeColor = MyDialog.Color;
+            }  
         }
 
         private void menuArchivoSalir_Click(object sender, EventArgs e)
@@ -220,6 +244,39 @@ namespace DEINT_Formulario_BlocNotas
         private void menuImgBuscar_Click(object sender, EventArgs e)
         {
             buscar();
+        }
+
+        private void menuEdicionFuente_Click(object sender, EventArgs e)
+        {
+            fuente();
+        }
+
+        private void menuImgFuente_Click(object sender, EventArgs e)
+        {
+            fuente();
+        }
+
+        private void menuEdicionColor_Click(object sender, EventArgs e)
+        {
+            color();
+        }
+
+        private void menuImgColor_Click(object sender, EventArgs e)
+        {
+            color();
+        }
+
+        private void txtNotas_TextChanged(object sender, EventArgs e)
+        {
+            int posi = txtNotas.SelectionStart;
+
+            int linea = txtNotas.GetLineFromCharIndex(posi);
+
+            int columna = posi - txtNotas.GetFirstCharIndexOfCurrentLine();
+
+            tsLblFila.Text = $"Fila: {linea}";
+            tsLblColumna.Text = $"Columna: {columna}";
+ 
         }
     }
 }
