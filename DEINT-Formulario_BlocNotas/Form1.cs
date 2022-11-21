@@ -18,22 +18,32 @@ namespace DEINT_Formulario_BlocNotas
     public partial class Form1 : Form
     {
 
-        private String filePath = string.Empty;
-        private Boolean buscado = false;
+        private String filePath;
+        private Boolean buscado;
 
         public Form1()
         {
             InitializeComponent();
+            filePath = String.Empty;
+            buscado = false;
         }
 
         private void nuevo()
         {
-            txtNotas.Visible = true;
+            if (!filePath.Equals(String.Empty))
+            {
+                if (MessageBox.Show("Se perderán los cambios si abres uno nuevo", "Nuevo archivo", MessageBoxButtons.OKCancel) == DialogResult.OK) {
+                    filePath = String.Empty;
+                    txtNotas.Text = String.Empty;
+                }
+            }
+            else {
+                txtNotas.Text = String.Empty;
+            }
         }
 
         private void abrir() 
         {
-            var fileContent = string.Empty;
 
             using (OpenFileDialog openFileDialog = new OpenFileDialog())
             {
@@ -44,22 +54,17 @@ namespace DEINT_Formulario_BlocNotas
 
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
-                    //Get the path of specified file
+                    
                     filePath = openFileDialog.FileName;
 
-                    //Read the contents of the file into a stream
                     var fileStream = openFileDialog.OpenFile();
 
                     using (StreamReader reader = new StreamReader(fileStream))
                     {
-                        fileContent = reader.ReadToEnd();
+                        txtNotas.Text = reader.ReadToEnd();
                     }
                 }
             }
-
-            txtNotas.Text = fileContent;
-
-            txtNotas.Visible = true;
 
         }
 
@@ -115,23 +120,19 @@ namespace DEINT_Formulario_BlocNotas
                 if (!input.Equals(String.Empty))
                 {
 
-                    string[] words = input.Split(',');
-                    foreach (string word in words)
+                    int startindex = 0;
+                    while (startindex < txtNotas.TextLength)
                     {
-                        int startindex = 0;
-                        while (startindex < txtNotas.TextLength)
+                        int wordstartIndex = txtNotas.Find(input, startindex, RichTextBoxFinds.None);
+                        if (wordstartIndex != -1)
                         {
-                            int wordstartIndex = txtNotas.Find(word, startindex, RichTextBoxFinds.None);
-                            if (wordstartIndex != -1)
-                            {
-                                txtNotas.SelectionStart = wordstartIndex;
-                                txtNotas.SelectionLength = word.Length;
-                                txtNotas.SelectionBackColor = Color.Yellow;
-                            }
-                            else
-                                break;
-                            startindex += wordstartIndex + word.Length;
+                            txtNotas.SelectionStart = wordstartIndex;
+                            txtNotas.SelectionLength = input.Length;
+                            txtNotas.SelectionBackColor = Color.Yellow;
                         }
+                        else
+                            break;
+                        startindex += wordstartIndex + input.Length;
                     }
 
                 }
@@ -141,7 +142,7 @@ namespace DEINT_Formulario_BlocNotas
             {
                 txtNotas.SelectionStart = 0;
                 txtNotas.SelectAll();
-                txtNotas.BackColor = Color.White;
+                txtNotas.SelectionBackColor = Color.White;
                 buscado = false;
             }
             
@@ -171,6 +172,17 @@ namespace DEINT_Formulario_BlocNotas
             }  
         }
 
+        private void filaColumna() {
+            int posi = txtNotas.SelectionStart;
+
+            int linea = txtNotas.GetLineFromCharIndex(posi);
+
+            int columna = posi - txtNotas.GetFirstCharIndexOfCurrentLine();
+
+            tsLblFila.Text = $"Fila: {linea}";
+            tsLblColumna.Text = $"Columna: {columna}";
+        }
+
         private void menuArchivoSalir_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -188,12 +200,33 @@ namespace DEINT_Formulario_BlocNotas
 
         private void menuArchivoAbrir_Click(object sender, EventArgs e)
         {
-            abrir();
+            if (!filePath.Equals(String.Empty))
+            {
+                if (MessageBox.Show("Se perderán los cambios si abres uno nuevo", "Nuevo archivo", MessageBoxButtons.OKCancel) == DialogResult.OK)
+                {
+                    abrir();
+                }
+            }
+            else
+            {
+                abrir();
+            }
+            
         }
 
         private void menuImgAbrir_Click(object sender, EventArgs e)
         {
-            abrir();
+            if (!filePath.Equals(String.Empty))
+            {
+                if (MessageBox.Show("Se perderán los cambios si abres uno nuevo", "Nuevo archivo", MessageBoxButtons.OKCancel) == DialogResult.OK)
+                {
+                    abrir();
+                }
+            }
+            else
+            {
+                abrir();
+            }
         }
 
         private void menuArchivoGuardar_Click(object sender, EventArgs e)
@@ -268,15 +301,22 @@ namespace DEINT_Formulario_BlocNotas
 
         private void txtNotas_TextChanged(object sender, EventArgs e)
         {
-            int posi = txtNotas.SelectionStart;
+            filaColumna();
+        }
 
-            int linea = txtNotas.GetLineFromCharIndex(posi);
+        private void txtNotas_MouseClick(object sender, MouseEventArgs e)
+        {
+            filaColumna();
+        }
 
-            int columna = posi - txtNotas.GetFirstCharIndexOfCurrentLine();
+        private void txtNotas_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            filaColumna();
+        }
 
-            tsLblFila.Text = $"Fila: {linea}";
-            tsLblColumna.Text = $"Columna: {columna}";
- 
+        private void txtNotas_KeyUp(object sender, KeyEventArgs e)
+        {
+            filaColumna();
         }
     }
 }

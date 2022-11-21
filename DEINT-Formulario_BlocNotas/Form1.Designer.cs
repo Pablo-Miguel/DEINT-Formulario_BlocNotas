@@ -45,6 +45,7 @@
             this.menuImgNuevo = new System.Windows.Forms.ToolStripButton();
             this.menuImgAbrir = new System.Windows.Forms.ToolStripButton();
             this.menuImgGuardar = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.menuImgCortar = new System.Windows.Forms.ToolStripButton();
             this.menuImgCopiar = new System.Windows.Forms.ToolStripButton();
             this.menuImgPegar = new System.Windows.Forms.ToolStripButton();
@@ -53,9 +54,9 @@
             this.menuImgColor = new System.Windows.Forms.ToolStripButton();
             this.txtNotas = new System.Windows.Forms.RichTextBox();
             this.statusMenu = new System.Windows.Forms.StatusStrip();
-            this.fontDialog1 = new System.Windows.Forms.FontDialog();
             this.tsLblFila = new System.Windows.Forms.ToolStripStatusLabel();
             this.tsLblColumna = new System.Windows.Forms.ToolStripStatusLabel();
+            this.fontDialog1 = new System.Windows.Forms.FontDialog();
             this.menu.SuspendLayout();
             this.menuImg.SuspendLayout();
             this.statusMenu.SuspendLayout();
@@ -127,42 +128,42 @@
             // menuEdicionCortar
             // 
             this.menuEdicionCortar.Name = "menuEdicionCortar";
-            this.menuEdicionCortar.Size = new System.Drawing.Size(180, 22);
+            this.menuEdicionCortar.Size = new System.Drawing.Size(110, 22);
             this.menuEdicionCortar.Text = "&Cortar";
             this.menuEdicionCortar.Click += new System.EventHandler(this.menuEdicionCortar_Click);
             // 
             // menuEdicionCopiar
             // 
             this.menuEdicionCopiar.Name = "menuEdicionCopiar";
-            this.menuEdicionCopiar.Size = new System.Drawing.Size(180, 22);
+            this.menuEdicionCopiar.Size = new System.Drawing.Size(110, 22);
             this.menuEdicionCopiar.Text = "&Copiar";
             this.menuEdicionCopiar.Click += new System.EventHandler(this.menuEdicionCopiar_Click);
             // 
             // menuEdicionPegar
             // 
             this.menuEdicionPegar.Name = "menuEdicionPegar";
-            this.menuEdicionPegar.Size = new System.Drawing.Size(180, 22);
+            this.menuEdicionPegar.Size = new System.Drawing.Size(110, 22);
             this.menuEdicionPegar.Text = "&Pegar";
             this.menuEdicionPegar.Click += new System.EventHandler(this.menuEdicionPegar_Click);
             // 
             // menuEdicionBuscar
             // 
             this.menuEdicionBuscar.Name = "menuEdicionBuscar";
-            this.menuEdicionBuscar.Size = new System.Drawing.Size(180, 22);
+            this.menuEdicionBuscar.Size = new System.Drawing.Size(110, 22);
             this.menuEdicionBuscar.Text = "&Buscar";
             this.menuEdicionBuscar.Click += new System.EventHandler(this.menuEdicionBuscar_Click);
             // 
             // menuEdicionFuente
             // 
             this.menuEdicionFuente.Name = "menuEdicionFuente";
-            this.menuEdicionFuente.Size = new System.Drawing.Size(180, 22);
+            this.menuEdicionFuente.Size = new System.Drawing.Size(110, 22);
             this.menuEdicionFuente.Text = "&Fuente";
             this.menuEdicionFuente.Click += new System.EventHandler(this.menuEdicionFuente_Click);
             // 
             // menuEdicionColor
             // 
             this.menuEdicionColor.Name = "menuEdicionColor";
-            this.menuEdicionColor.Size = new System.Drawing.Size(180, 22);
+            this.menuEdicionColor.Size = new System.Drawing.Size(110, 22);
             this.menuEdicionColor.Text = "&Color";
             this.menuEdicionColor.Click += new System.EventHandler(this.menuEdicionColor_Click);
             // 
@@ -172,6 +173,7 @@
             this.menuImgNuevo,
             this.menuImgAbrir,
             this.menuImgGuardar,
+            this.toolStripSeparator1,
             this.menuImgCortar,
             this.menuImgCopiar,
             this.menuImgPegar,
@@ -213,6 +215,11 @@
             this.menuImgGuardar.Size = new System.Drawing.Size(23, 22);
             this.menuImgGuardar.Text = "Guardar";
             this.menuImgGuardar.Click += new System.EventHandler(this.menuImgGuardar_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
             // 
             // menuImgCortar
             // 
@@ -281,8 +288,9 @@
             this.txtNotas.Size = new System.Drawing.Size(800, 373);
             this.txtNotas.TabIndex = 2;
             this.txtNotas.Text = "";
-            this.txtNotas.Visible = false;
+            this.txtNotas.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtNotas_MouseClick);
             this.txtNotas.TextChanged += new System.EventHandler(this.txtNotas_TextChanged);
+            this.txtNotas.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtNotas_KeyUp);
             // 
             // statusMenu
             // 
@@ -360,6 +368,7 @@
         private System.Windows.Forms.FontDialog fontDialog1;
         private System.Windows.Forms.ToolStripStatusLabel tsLblFila;
         private System.Windows.Forms.ToolStripStatusLabel tsLblColumna;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
     }
 }
 
