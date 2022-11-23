@@ -75,6 +75,7 @@ namespace DEINT_Formulario_BlocNotas
                 using (StreamWriter sw = new StreamWriter(filePath))
                 {
                     sw.WriteLine(txtNotas.Text);
+                    MessageBox.Show("Se ha guardado correctamente");
                 }
             }
             else 
@@ -92,7 +93,14 @@ namespace DEINT_Formulario_BlocNotas
                     {
                         filePath = saveFileDialog1.FileName;
                         myStream.Close();
-                        guardar();
+                        if (filePath.EndsWith(".rtf"))
+                        {
+                            txtNotas.SaveFile(filePath);
+                            MessageBox.Show("Se ha guardado correctamente");
+                        }
+                        else {
+                            guardar();
+                        }
                     }
                 }
             }
