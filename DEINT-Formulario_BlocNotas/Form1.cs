@@ -151,13 +151,13 @@ namespace DEINT_Formulario_BlocNotas
         private void fuente() {
             fontDialog1.ShowColor = true;
 
-            fontDialog1.Font = txtNotas.Font;
-            fontDialog1.Color = txtNotas.ForeColor;
+            fontDialog1.Font = txtNotas.SelectionFont;
+            fontDialog1.Color = txtNotas.SelectionColor;
 
             if (fontDialog1.ShowDialog() != DialogResult.Cancel)
             {
-                txtNotas.Font = fontDialog1.Font;
-                txtNotas.ForeColor = fontDialog1.Color;
+                txtNotas.SelectionFont = fontDialog1.Font;
+                txtNotas.SelectionColor = fontDialog1.Color;
             }
         }
 
@@ -165,10 +165,10 @@ namespace DEINT_Formulario_BlocNotas
             ColorDialog MyDialog = new ColorDialog();
             MyDialog.AllowFullOpen = false;
             MyDialog.ShowHelp = true;
-            MyDialog.Color = txtNotas.ForeColor;
+            MyDialog.Color = txtNotas.SelectionColor;
 
             if (MyDialog.ShowDialog() == DialogResult.OK) { 
-                txtNotas.ForeColor = MyDialog.Color;
+                txtNotas.SelectionColor = MyDialog.Color;
             }  
         }
 
